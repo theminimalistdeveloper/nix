@@ -40,7 +40,7 @@
   services.printing.enable = true;
 
 # Audio
-  sound.enable = true;
+  #sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -68,7 +68,6 @@
 # $ nix search wget
   environment.systemPackages = with pkgs; [
     pulseaudio
-      kitty
       python3
       brightnessctl
       vim

@@ -1,8 +1,7 @@
 { pkgs, ...}: 
 {
-
   imports = [
-    ./neovim.nix # Comment this out if you do not want to setup Neovim.
+    ./neovim/default.nix # Comment this out if you do not want to setup Neovim.
   ];
 
   # Allow unfree packages
@@ -25,6 +24,15 @@
  
   # Programs
   programs = {
+    kitty = {
+      enable = true;
+      theme = "Catppuccin-Macchiato";
+      settings = {
+       confirm_os_window_close = -0;
+       copy_on_select = true;
+       clipboard_control = "write-clipboard read-clipboard write-primary read-primary";
+      };
+    };
     zsh = {
       enable = true;
       autosuggestion.enable = true;
