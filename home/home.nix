@@ -1,7 +1,7 @@
 { pkgs, ...}: 
 {
   imports = [
-    ./neovim/default.nix # Comment this out if you do not want to setup Neovim.
+    ./neovim/default.nix
   ];
 
   # Allow unfree packages
@@ -49,7 +49,6 @@
         n = "nvim";
       };
     };
-
 
     tmux = {
       enable = true;
@@ -182,7 +181,8 @@
 
     # General
     brave # browser
-    yazi # file manager
+    w3m # command line browser
+    yazi # command line file manager
 
     # Environment
     swaybg # wallpaper manager

@@ -34,7 +34,7 @@
       theme = {
         normal = {
           a = { fg = "#000000"; bg = "#ca9ee6"; };
-          b = { fg = "#000000"; bg = "#85c1dc"; };
+          b = { fg = "#ffffff"; bg = ""; };
           c = { fg = "#ffffff"; bg = ""; };
           x = { fg = "#ffffff"; bg = ""; };
           z = { fg = "#ffffff"; bg = ""; };
@@ -44,12 +44,12 @@
           z = { fg = ""; bg = ""; };
         };
         visual = {
-          a = { fg = ""; bg = "#a6d189"; };
-          z = { fg = "#ffffff"; bg = "#000000"; };
+          a = { fg = "#000000"; bg = "#a6d189"; };
+          z = { fg = "#ffffff"; bg = ""; };
         };
         replace = {
-          a = { fg = "#000000"; bg = "#8caaee"; };
-          z = { fg = "#ffffff"; bg = "#000000"; };
+          a = { fg = "#ffffff"; bg = ""; };
+          z = { fg = "#ffffff"; bg = ""; };
         };
         inactive = {
           a = { fg = "#ffffff"; bg = ""; };
