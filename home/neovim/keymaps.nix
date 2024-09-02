@@ -11,6 +11,10 @@
     { key = "<leader>cp"; action = "<cmd>cp<CR>"; }
     { key = "<leader>cc"; action = "<cmd>cclose<CR>"; }
 
+    # GIT - $G
+    { key = "<leader>gs"; action = "<cmd>Neogit<CR>"; }
+
+
     # CONFIGURATIONS - $N
     { key = "<leader>nh"; action = "<cmd>e ~/nix/home/home.nix<CR>"; }
     { key = "<leader>nn"; action = "<cmd>e ~/nix/home/neovim.nix<CR>"; }
