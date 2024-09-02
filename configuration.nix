@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-
-{
+{ pkgs, ... }: {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -9,19 +7,19 @@
     ./hardware-configuration.nix
   ];
 
-# Bootloader.
+  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "central"; # Define your hostname.
 
-# Enable networking
-    networking.networkmanager.enable = true;
+  # Enable networking
+  networking.networkmanager.enable = true;
 
-# Set your time zone.
+  # Set your time zone.
   time.timeZone = "Europa/Berlin";
 
-# Select internationalisation properties.
+  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -36,10 +34,10 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-# Enable CUPS to print documents.
+  # Enable CUPS to print documents.
   services.printing.enable = true;
 
-# Audio
+  # Audio
   #sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -52,7 +50,7 @@
 
   services.libinput.enable = true;
 
-# Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.n3xu5 = {
     isNormalUser = true;
     description = "n3xu5";
@@ -61,11 +59,11 @@
 
   users.defaultUserShell = pkgs.zsh;
 
-# Allow unfree packages
+  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-# List packages installed in system profile. To search, run:
-# $ nix search wget
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
   environment.systemPackages = with pkgs; [
     pulseaudio
       python3
@@ -74,7 +72,8 @@
   ];
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })
+    hack-font
   ];
 
   programs.dconf.enable = true;
