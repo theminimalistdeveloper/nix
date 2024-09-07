@@ -63,11 +63,26 @@ wayland.windowManager = {
           "$mod SHIFT, S, movetoworkspace, special:magic"
 
           # Media Keys
-         # "XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+"
-         # "XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-"
-         # "XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_AUDIO_SINK@ 'toggle'"
-         # "XF86MonBrightnessUp, exec, brightnessctl s +5%"
-         # "XF86MonBrightnessDown, exec, brightnessctl s 5%-"
+          # Volume up
+         ", code:123, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+"
+         # Volume down
+         ", code:122, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-"
+         # Mute
+         ", code:134, exec, pactl set-sink-mute @DEFAULT_AUDIO_SINK@ 'toggle'"
+         # Brightness up
+         ", code:233, exec, brightnessctl s +5%"
+         # Brightness down
+         ", code:232, exec, brightnessctl s 5%-"
+         # Display 
+         ", code:235, exec, "
+         # Print Screen 
+         ", code:107, exec, "
+         # Launch
+         ", code:157, exec, "
+         # No symbol F11
+         ", code:248, exec, "
+         # Favorites
+         ", code:164, exec, "
         ];
 
         dwindle = {
@@ -93,13 +108,13 @@ wayland.windowManager = {
 
         input = {
           kb_layout = "us";
-          # kb_variant =
-          # kb_model =
+          kb_variant = "alt-intl";
+          kb_model = "thinkpad";
           # kb_options =
           # kb_rules =
 
           follow_mouse = 1;
-          sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
+          sensitivity = 0;
 
           touchpad = {
             natural_scroll = true;
@@ -124,9 +139,18 @@ wayland.windowManager = {
         };
 
         decoration = {
-          rounding = 5;
-          active_opacity = 1.0;
+          rounding = 3;
+          active_opacity = 0.9;
           inactive_opacity = 0.7;
+          blur = {
+            passes = 3;
+            enabled = true;
+            size = 8;
+            special = true;
+            popups = true;
+            xray = true;
+            ignore_opacity = true;
+          };
         };
       };
     };
