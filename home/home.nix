@@ -142,5 +142,9 @@
     cider
     plex
     vlc
+
+    # Development
+    rustup
+    gcc
   ];
 }
