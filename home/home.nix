@@ -5,6 +5,7 @@
     ./tmux.nix
     ./waybar.nix
     ./wofi.nix
+    ./zsh.nix
   ];
 
   # Allow unfree packages
@@ -47,32 +48,6 @@
         confirm_os_window_close = -0;
         copy_on_select = true;
         clipboard_control = "write-clipboard read-clipboard write-primary read-primary";
-      };
-    };
-
-    zsh = {
-      enable = true;
-      # bindkey = -v
-      defaultKeymap = "viins";
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
-      envExtra = ''
-        # Make Nix and home-manager installed things available in PATH.
-        export PATH=/run/current-system/sw/bin/:/nix/var/nix/profiles/default/bin:$HOME/.nix-profile/bin:/etc/profiles/per-user/$USER/bin:$PATH
-      '';
-      shellAliases = {
-        # gambis
-        sudo = "/run/wrappers/bin/sudo";
-        c = "clear";
-        e = "exit";
-        n = "nvim";
-        # Tmux
-        tn = "tmux new -s ";
-        tk = "tmux kill-session -s ";
-        ta = "tmux a -t ";
-        # Eza
-        l = "eza";
-        la = "eza -la";
       };
     };
 
@@ -135,8 +110,6 @@
 
     # Environment
     swaybg # wallpaper manager
-    waybar # status bar
-    wofi # launcher
 
     # Media consumption
     cider
