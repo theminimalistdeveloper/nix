@@ -2,7 +2,7 @@
   programs.waybar = {
     enable = true;
     settings = [{
-      height = 20;
+      height = 25;
       spacing = 0;
       modules-left = [
         "custom/media"
@@ -13,10 +13,10 @@
       ];
       modules-right = [
         "pulseaudio"
-          "network"
-          "backlight"
-          "battery"
-          "clock"
+        "network"
+        "backlight"
+        "battery"
+        "clock"
       ];
       "hyprland/workspaces" = {
         disable-scroll = true;
@@ -25,10 +25,14 @@
         format = "{icon}";
         format-icons = {
           "1" = "";
-          "2"= "";
-          "3"= "";
-          "4"= "";
-          "5"= "";
+          "2"= "";
+          "3"= "󰝚";
+          "4"= "4";
+          "5"= "5";
+          "6"= "6";
+          "7"= "7";
+          "8"= "8";
+          "9"= "9";
           urgent = "";
           focused = "";
           default = "";
@@ -36,7 +40,6 @@
       };
 
       clock = {
-        tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         format-alt = "{:%Y-%m-%d}";
       };
       backlight = {
@@ -45,21 +48,21 @@
       };
       battery = {
         states = {
-          warning = 30;
-          critical = 1;
+          warning = 20;
+          critical = 10;
         };
         format = "{icon}";
         format-full = "{icon}";
-        format-charging = "";
+        format-charging = "󰂄";
         format-plugged = "";
         format-alt = "{icon}";
-        format-icons = ["" "" "" "" ""];
+        format-icons = ["󰁺" "󰁼" "󰁾" "󰂀" "󰂂"];
       };
       network = {
         format-wifi = "";
-        format-ethernet = "";
-        tooltip-format = "{ifname} via {gwaddr} ";
-        formjt-linked = "{ifname} (No IP) ";
+        format-ethernet = "󰈁";
+        tooltip-format = "{ifname} via {gwaddr}";
+        formjt-linked = "{ifname} (No IP)";
         format-disconnected = "Disconnected ⚠";
         format-alt = "{ifname}: {ipaddr}/{cidr}";
       };
@@ -79,101 +82,56 @@
     }];
 
     style = ''
+        @define-color base rgb(36, 39, 58);
+        @define-color blue rgb(138, 173, 244);
+        @define-color crust rgb(24, 25, 38);
+        @define-color flamingo rgb(240, 198, 198);
+        @define-color green rgb(166, 218, 149);
+        @define-color mantle rgb(30, 32, 48);
+        @define-color overlay0 rgb(110, 115, 141);
+        @define-color peach rgb(245, 169, 127);
+        @define-color red rgb(237, 135, 150);
+        @define-color subtext0 rgb(165, 173, 203);
+        @define-color subtext1 rgb(184, 192, 224);
+        @define-color surface0 rgb(54, 58, 79);
+        @define-color text rgb(202, 211, 245);
+        @define-color overlay2 rgb(147, 154, 183);
+
         * {
-            /* `otf-font-awesome` is required to be installed for icons */
-            font-family: Hack, sans-serif;
-            font-size: 12px;
+          font-family: Hack, sans-serif;
+          font-size: 14px;
+          font-weight: bold;
         }
 
         window#waybar {
-            background-color: transparent;
-            color: #ffffff;
+            background: @crust;
+            color: @overlay2;
         }
 
         window#waybar.hidden {
             opacity: 0.2;
         }
 
-        /*
-        window#waybar.empty {
-            background-color: transparent;
-        }
-        window#waybar.solo {
-            background-color: #FFFFFF;
-        }
-        */
-
-        window#waybar.termite {
-            background-color: #3F3F3F;
-        }
-
-        window#waybar.chromium {
-            background-color: #000000;
-            border: none;
-        }
-
         button {
-            /* Use box-shadow instead of border so the text isn't offset */
-            box-shadow: inset 0 -3px transparent;
-            /* Avoid rounded borders under each button name */
             border: none;
             border-radius: 0;
+            background-color: transparent;
+            color: @overlay2;
+            padding: 0 10px;
         }
 
-        /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
         button:hover {
-            background: inherit;
+          background: inherit;
+          color: @text;
+          border: none;
         }
 
-        /* you can set a style on hover for any module like this */
-        #pulseaudio:hover {
-            color: #ffffff;
-            background-color: transparent;
-        }
-
-        #workspaces button {
-            padding: 0 5px;
-            background-color: transparent;
-            color: #ffffff;
-        }
-
-        #workspaces button:hover { }
-
-        #workspaces button.focused {
-            background-color: transparent;
-        }
-
-        #workspaces button.urgent {
-            background-color: transparent;
-            color: #ffffff;
+        #workspaces button.active {
+          color: white;
         }
 
         #mode {
             background-color: transparent;
-        }
-
-        #clock,
-        #battery,
-        #cpu,
-        #memory,
-        #disk,
-        #temperature,
-        #backlight,
-        #network,
-        #pulseaudio,
-        #wireplumber,
-        #custom-media,
-        #tray,
-        #mode,
-        #idle_inhibitor,
-        #scratchpad,
-        #power-profiles-daemon,
-        #clock,
-        #battery,
-        #mpd {
-            padding: 0 10px;
-            color: #ffffff;
-            background: transparent;
         }
 
         #window,
@@ -181,30 +139,26 @@
             margin: 0 4px;
         }
 
-        /* If workspaces is the leftmost module, omit left margin */
         .modules-left > widget:first-child > #workspaces {
             margin-left: 0;
         }
 
-        /* If workspaces is the rightmost module, omit right margin */
         .modules-right > widget:last-child > #workspaces {
             margin-right: 0;
         }
 
         #battery.charging, #battery.plugged {
-            color: #26A65B;
+            color: @green;
         }
 
         @keyframes blink {
             to {
-                background-color: #ffffff;
-                color: #000000;
+                color: @crust;
             }
         }
 
-        /* Using steps() instead of linear as a timing function to limit cpu usage */
         #battery.critical:not(.charging) {
-            color: #f53c3c;
+            color: @red;
             animation-name: blink;
             animation-duration: 0.5s;
             animation-timing-function: steps(12);
@@ -217,41 +171,26 @@
         }
 
         #power-profiles-daemon.performance {
-            color: #f53c3c;
+            color: @red;
         }
 
         #power-profiles-daemon.balanced {
-            color: #2980b9;
+            color: @blue;
         }
 
         #power-profiles-daemon.power-saver {
-            color: #2ecc71;
+            color: @green;
         }
 
-        label:focus {
-            background-color: #000000;
+        #pulseaudio,
+        #network,
+        #backlight,
+        #clock {
+          padding: 0 10px;
         }
 
-
-        #privacy {
-            padding: 0;
-        }
-
-        #privacy-item {
-            padding: 0 5px;
-            color: white;
-        }
-
-        #privacy-item.screenshare {
-            background-color: #cf5700;
-        }
-
-        #privacy-item.audio-in {
-            background-color: #1ca000;
-        }
-
-        #privacy-item.audio-out {
-            background-color: #0069d4;
+        #battery {
+          padding: 0 0 0 5px;
         }
     '';
   };
