@@ -5,10 +5,10 @@ wayland.windowManager = {
       settings = {
         "$mod" = "SUPER";
         exec-once = [
-          "kitty"
-          "waybar"
           "swaybg -i ~/Pictures/background.jpg"
+          "waybar"
           "brave"
+          "kitty"
         ];
         bind = [
           "SUPER, x, exec, hyprctl keyword general:layout \"dwindle\""
@@ -68,7 +68,7 @@ wayland.windowManager = {
          # Volume down
          ", code:122, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-"
          # Mute
-         ", code:134, exec, pactl set-sink-mute @DEFAULT_AUDIO_SINK@ 'toggle'"
+         ", code:134, exec, wpct set-mute @DEFAULT_AUDIO_SINK@ 'toggle'"
          # Brightness up
          ", code:233, exec, brightnessctl s +5%"
          # Brightness down
@@ -91,8 +91,7 @@ wayland.windowManager = {
         };
 
         env = [
-          "XCURSOR_SIZE,48"
-          "HYPRCURSOR_SIZE,48"
+          "XCURSOR_SIZE,32"
         ];
 
         master = {
@@ -135,7 +134,7 @@ wayland.windowManager = {
         general = { 
           gaps_in = 5;
           gaps_out = 10;
-          border_size = 1;
+          border_size = 0;
         };
 
         decoration = {
