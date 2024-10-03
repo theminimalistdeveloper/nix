@@ -5,7 +5,6 @@
     ./tmux.nix
     ./waybar.nix
     ./wofi.nix
-    ./zsh.nix
   ];
 
   # Allow unfree packages
@@ -88,6 +87,7 @@
     fzf.enable = true; # Type `<ctrl> + r` to fuzzy search your shell history
     jq.enable = true;
     zoxide.enable = true; # Type `z <pat>` to cd to some directory
+    home-manager.enable = true;
   };
 
   # Packages
