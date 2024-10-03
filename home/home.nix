@@ -5,6 +5,7 @@
     ./tmux.nix
     ./waybar.nix
     ./wofi.nix
+    ./zsh.nix
   ];
 
   # Allow unfree packages
@@ -21,7 +22,7 @@
   home = {
     username = "n3xu5";
     homeDirectory = "/home/n3xu5";
-    stateVersion = "23.05";
+    stateVersion = "24.05";
   };
  
   # Programs
@@ -35,6 +36,8 @@
         { id = "gpdjojdkbbmdfjfahjcgigfpmkopogic"; } # Pinterest
       ];
     };
+
+    firefox.enable = true;
 
     kitty = {
       enable = true;
@@ -88,6 +91,7 @@
     jq.enable = true;
     zoxide.enable = true; # Type `z <pat>` to cd to some directory
     home-manager.enable = true;
+    go.enable = true;
   };
 
   # Packages

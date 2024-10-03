@@ -37,6 +37,8 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  services.flatpak.enable = true;
+
   # Audio
   #sound.enable = true;
   hardware.pulseaudio.enable = false;
