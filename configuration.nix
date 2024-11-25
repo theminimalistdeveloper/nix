@@ -10,7 +10,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "central"; # Define your hostname.
+  # Define your hostname.
+  networking.hostName = "central"; 
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -36,10 +37,20 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+# Greeter
+  services.greetd = {
+      enable = true;
+      settings = {
+          default_session = {
+              command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+              user = "greeter";
+          };
+      };
+  };
+
   services.flatpak.enable = true;
 
   # Audio
-  #sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -66,12 +77,20 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # DAW
+    bitwig-studio
+    # controls the brightness with the special keys
     brightnessctl
+    # to use node applications as a workaround
     nodejs
+    # for audio management
     pulseaudio
     python3
+    # computer remote access software
     rustdesk
     vim
+    # notification system developed by swaym creator
+    mako
   ];
 
   fonts.packages = with pkgs; [
@@ -81,7 +100,10 @@
 
   programs.dconf.enable = true;
   programs.firefox.enable = true;
-  programs.sway.enable = true;
+  programs.sway = {
+      enable = true;
+      wrapperFeatures.gtk = true;
+  };
   programs.zsh.enable = true;
   programs.steam.enable = true;
 
