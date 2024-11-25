@@ -6,10 +6,10 @@
       spacing = 0;
       modules-left = [
         "custom/media"
-          "hyprland/window"
+        "sway/window"
       ];
       modules-center = [
-        "hyprland/workspaces"
+        "sway/workspaces"
       ];
       modules-right = [
         "pulseaudio"
@@ -18,27 +18,11 @@
         "battery"
         "clock"
       ];
-      "hyprland/workspaces" = {
+      "sway/workspaces" = {
         disable-scroll = true;
         all-outputs = true;
         warp-on-scroll = false;
-        format = "{icon}";
-        format-icons = {
-          "1" = "";
-          "2"= "";
-          "3"= "󰝚";
-          "4"= "4";
-          "5"= "5";
-          "6"= "6";
-          "7"= "7";
-          "8"= "8";
-          "9"= "9";
-          urgent = "";
-          focused = "";
-          default = "";
-        };
       };
-
       clock = {
         format-alt = "{:%Y-%m-%d}";
       };
@@ -68,9 +52,9 @@
       };
       pulseaudio = {
         format = "{icon}";
-        format-bluetooth = "{volume}% {icon} ";
-        format-bluetooth-muted = " {icon} ";
-        format-muted = " ";
+        format-bluetooth = "{icon}";
+        format-bluetooth-muted = "{icon}";
+        format-muted = "";
         format-source = "";
         format-source-muted = "";
         format-icons = {
@@ -81,13 +65,14 @@
       };
     }];
 
+# @define-color crust rgb(24, 25, 38);
     style = ''
         @define-color base rgb(36, 39, 58);
         @define-color blue rgb(138, 173, 244);
-        @define-color crust rgb(24, 25, 38);
         @define-color flamingo rgb(240, 198, 198);
         @define-color green rgb(166, 218, 149);
         @define-color mantle rgb(30, 32, 48);
+        @define-color crust rgb(0, 0, 0);
         @define-color overlay0 rgb(110, 115, 141);
         @define-color peach rgb(245, 169, 127);
         @define-color red rgb(237, 135, 150);
@@ -126,8 +111,11 @@
           border: none;
         }
 
-        #workspaces button.active {
+        #workspaces button.focused {
           color: white;
+        }
+        #workspaces button {
+          color: @overlay0;
         }
 
         #mode {

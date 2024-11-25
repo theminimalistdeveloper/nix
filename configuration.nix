@@ -1,13 +1,12 @@
 { pkgs, ... }: {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
-# Include the results of the hardware scan.
+  # Include the results of the hardware scan.
   imports = [
     ./hardware-configuration.nix
   ];
 
-  # Bootloader.
+  boot.kernelPackages = pkgs.linuxPackages_6_11;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -67,10 +66,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    brightnessctl
+    nodejs
     pulseaudio
-      python3
-      brightnessctl
-      vim
+    python3
+    rustdesk
+    vim
   ];
 
   fonts.packages = with pkgs; [
@@ -80,8 +81,10 @@
 
   programs.dconf.enable = true;
   programs.firefox.enable = true;
-  programs.hyprland.enable = true;
+  programs.sway.enable = true;
   programs.zsh.enable = true;
+  programs.steam.enable = true;
 
   system.stateVersion = "24.05";
 }
+

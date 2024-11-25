@@ -38,10 +38,11 @@
     };
 
     firefox.enable = true;
+    hyprlock.enable = true;
 
     kitty = {
       enable = true;
-      theme = "Catppuccin-Macchiato";
+      themeFile = "Catppuccin-Macchiato";
       font = {
         name = "JetBrains Mono";
         size = 12;
@@ -116,12 +117,17 @@
     swaybg # wallpaper manager
 
     # Media consumption
-    cider
     plex
     vlc
 
     # Development
     rustup
     gcc
+
+    # Steam
+    steamcmd
+
+    # AWS
+    awscli2
   ];
 }

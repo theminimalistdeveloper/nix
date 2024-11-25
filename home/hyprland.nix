@@ -7,7 +7,6 @@ wayland.windowManager = {
         exec-once = [
           "swaybg -i ~/Pictures/background.jpg"
           "waybar"
-          "brave"
           "kitty"
         ];
         bind = [
@@ -15,7 +14,7 @@ wayland.windowManager = {
           "SUPER SHIFT, x, exec, hyprctl keyword general:layout \"master\""
 
           "$mod, T, exec, kitty"
-          "$mod, B, exec, brave"
+          "$mod, B, exec, firefox"
           "$mod, C, killactive,"
           "$mod, E, exit,"
           "$mod, SPACE, exec, wofi --show drun"
@@ -126,8 +125,6 @@ wayland.windowManager = {
 
         windowrulev2 = [
           "workspace 1,class:^(kitty)$,title:^(kitty)$"
-          "workspace 2,title:(.*)( - Brave)$"
-          "workspace 4,class:^(Cider)$,title:^(Cider)$"
           "suppressevent maximize, class:.*"
         ];
 
@@ -139,7 +136,7 @@ wayland.windowManager = {
 
         decoration = {
           rounding = 3;
-          active_opacity = 0.9;
+          active_opacity = 1;
           inactive_opacity = 0.7;
           blur = {
             passes = 3;

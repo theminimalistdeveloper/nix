@@ -26,14 +26,14 @@
       relativenumber = true; # The count of lines go from the current line instead of the top of the file
       scrolloff = 4; # Set 4 lines on the edge of the screen
       shiftround = false; # Set multiples of shiftwidth when indenting with '<'
-      shiftwidth = 2; # Define the number of spaces used for the auto indent
+      shiftwidth = 4; # Define the number of spaces used for the auto indent
       signcolumn = "yes:1"; # Fix sign column (the column before the numbers) to avoid layout shifting
       smartcase = true; # Use case sensitive when the terms are not all in smallcase
       swapfile = false;
-      tabstop = 2; # Set tab to be 2 spaces
+      tabstop = 4; # Set tab to be 4 spaces
       termguicolors = true; # Enables 24-bit RGB color in the |TUI|
       title = true;
-      undodir = "~/.undodir";
+      undodir = "/tmp/neovim-undodir";
       undofile = true;
       updatetime = 250;
       virtualedit = "all"; # Let the cursor go anywhere in all modes

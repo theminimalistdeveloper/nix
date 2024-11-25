@@ -13,14 +13,6 @@
     which-key.enable = true;
     neotest.enable = true;
     neogit.enable = true;
-    noice = {
-      enable = true;
-      presets = {
-        bottom_search = true;
-        command_palette = true;
-        long_message_to_split = true;
-      };
-    };
     telescope = {
       enable = true;
       extensions = {
@@ -93,6 +85,7 @@
       enable = true;
 
       settings = {
+        snippet.expand = ''function(args) require('luasnip').lsp_expand(args.body) end'';
         autoEnableSources = true;
         experimental = {ghost_text = true;};
         window = {
@@ -135,6 +128,7 @@
         html.enable = true;
         lua-ls.enable = true;
         jsonls.enable = true;
+        gopls.enable = true;
         rust-analyzer = {
           enable = true;
           installCargo = false;
@@ -143,4 +137,5 @@
       };
     };
   };
+ 
 }
