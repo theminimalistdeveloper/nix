@@ -8,8 +8,9 @@
     nvim-tree.enable = true;
     treesitter-context.enable = true;
     treesitter.enable = true;
-    surround.enable = true;
+    vim-surround.enable = true;
     tmux-navigator.enable = true;
+    web-devicons.enable = true;
     which-key.enable = true;
     neotest.enable = true;
     neogit.enable = true;
@@ -23,7 +24,7 @@
     # LUALINE
     lualine = {
       enable = true;
-      theme = {
+      settings.options.theme = {
         normal = {
           a = { fg = "#000000"; bg = "#ca9ee6"; };
           b = { fg = "#ffffff"; bg = ""; };
@@ -49,15 +50,15 @@
           c = { fg = "#ffffff"; bg = ""; };
         };
       };
-      componentSeparators = {
+      settings.options.component_separators = {
           left = "";
           right = "";
         };
-        sectionSeparators = {
+      settings.options.section_separators = {
           left = "";
           right = "";
         };
-        inactiveSections = {
+      settings.options.inactive_sections = {
           lualine_a = null;
           lualine_b = null;
           lualine_c = null;
@@ -65,7 +66,7 @@
           lualine_y = null;
           lualine_z = null;
         };
-        sections = {
+        settings.options.sections = {
           lualine_a = [ "mode" ];
           lualine_b = [ "branch" ];
           lualine_c = [ "filename" "filesize" "diff"];
@@ -121,15 +122,18 @@
     lsp = {
       enable = true;
       servers = {
-        tsserver.enable = true;
-        hls.enable = true;
+        ts_ls.enable = true;
+        hls = {
+            enable = true;
+            installGhc = true;
+        };
         marksman.enable = true;
-        nil-ls.enable = true;
+        nil_ls.enable = true;
         html.enable = true;
-        lua-ls.enable = true;
+        lua_ls.enable = true;
         jsonls.enable = true;
         gopls.enable = true;
-        rust-analyzer = {
+        rust_analyzer = {
           enable = true;
           installCargo = false;
           installRustc = false;
