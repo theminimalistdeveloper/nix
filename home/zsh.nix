@@ -7,7 +7,7 @@
 
     shellAliases = {
 # GENERAL
-      l = "eza";
+      l = "eza -lah";
       e = "exit";
       n = "nvim";
       c = "clear";
