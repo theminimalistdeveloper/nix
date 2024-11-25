@@ -17,12 +17,22 @@
       # default is weekly
       automatic = true;
     };
-  };
+
+ };
 
   home = {
-    username = "n3xu5";
-    homeDirectory = "/home/n3xu5";
-    stateVersion = "24.05";
+      username = "n3xu5";
+      homeDirectory = "/home/n3xu5";
+      stateVersion = "24.11";
+      pointerCursor = {
+          name = "Adwaita";
+          package = pkgs.gnome.adwaita-icon-theme;
+          size = 24;
+          x11 = {
+              enable = true;
+              defaultCursor = "Adwaita";
+          };
+      };
   };
  
   # Programs
