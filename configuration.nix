@@ -37,6 +37,24 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # Surfshark Openvpn
+  services.openvpn.servers = {
+      brazil  = { 
+        config = "config /home/n3xu5/nix/surfshark-ovpn/Brazil_udp.ovpn"; 
+        autoStart = false;
+        authUserPass.password = "ckLGDGpsQkkkYKVSfV6kLhFQ";
+        authUserPass.username = "n3xu5.0@gmail.com";
+        updateResolvConf = true;
+      };
+      switzerland  = { 
+        config = "config /home/n3xu5/nix/surfshark-ovpn/ch-zur.prod.surfshark.comsurfshark_openvpn_tcp.ovpn"; 
+        autoStart = true;
+        authUserPass.password = "ckLGDGpsQkkkYKVSfV6kLhFQ";
+        authUserPass.username = "n3xu5.0@gmail.com";
+        updateResolvConf = true;
+      };
+  };
+
 # Greeter
   services.greetd = {
       enable = true;
@@ -49,6 +67,12 @@
   };
 
   services.flatpak.enable = true;
+
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
+  services.blueman.enable = true;
 
   # Audio
   hardware.pulseaudio.enable = false;
@@ -91,6 +115,7 @@
     vim
     # notification system developed by swaym creator
     mako
+    openvpn
   ];
 
   fonts.packages = with pkgs; [
@@ -107,6 +132,6 @@
   programs.zsh.enable = true;
   programs.steam.enable = true;
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 }
 

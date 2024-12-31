@@ -109,6 +109,8 @@
   home.packages = with pkgs; [
     # Unix tools
     curl
+    wget
+    unzip
     eza # ls alternative
     fd # find alternative
     killall # kill all process of a specificy name
@@ -126,7 +128,11 @@
     # Environment
     swaybg # wallpaper manager
 
+    # Bluetooth
+    bluetui
+
     # Media consumption
+    playerctl
     plex
     vlc
 
@@ -139,5 +145,14 @@
 
     # AWS
     awscli2
+
+    # Widgets
+    eww
+
+    # Tools
+    zola
+
+    # Email
+    thunderbird
   ];
 }
